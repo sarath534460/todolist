@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<style>
+
+  #ui{
+
+    margin-top: 100px;
+    margin-left:50px;
+    width:300px;
+  }
+  #i{
+    margin-left:50px;
+  }
+</style>
+
+
+</head>
+
+<h1 style="color:red;margin-top:50px;margin-left:50px">TodoList</h1>
+<body>
+
+  <div style="position:absolute;top:400px;left:400px;background-color:rgb(235, 229, 230);padding:50px" *ngIf="isVisible">
+   <div>
+    <button type="button" (click)="close()" style="border:none;background-color:rgb(235, 229, 230);position:absolute;bottom:170px;left: 260px;" > <i class="fa-solid fa-rectangle-xmark fa-lg" style="color: #e50b21;"></i></button>
+   
+  </div>
+   <input type="text" [(ngModel)]="toshow" style="width:200px" class="form-control" name="editname"><br>
+    <button type="button" (click)="edit()" class="btn btn-warning">update</button>            
+  </div>
+
+  <form (ngSubmit)="dp(t.value);t.reset();" #t="ngForm">
+
+    <input id="ui" type="text" placeholder="today work" class="form-control" name="name" ngModel><br>
+
+    <button type="submit" id="i" class="btn btn-primary">submit</button>
+  </form><br>
+
+  <table style="width:300px;margin-left:50px"class="table" >
+    <thead>
+      <tr>
+        <th>WorkName</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let x of tablearr">
+        
+        <td >{{x.name}}</td>
+        <td><button style="border:none ;background-color: white;"  (click)="openpopup(x.name)" type="button"><i class="fa-sharp fa-solid fa-pen" style="color: #63E6BE;"></i></button></td>
+     
+        <td><button style="border:none;background-color:white;" (click)="delete(x.name)"type="button"><i class="fa-solid fa-trash fa-lg" style="color: #d80e18;"></i></button></td>
+         
+      </tr>
+      
+    </tbody>
+  </table>
+ 
+</body>
+</html>
