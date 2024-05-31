@@ -46,6 +46,7 @@ export class AppComponent {
  
  
   })
+  this.isVisible=false
   }
 
   openpopup(u:any){
